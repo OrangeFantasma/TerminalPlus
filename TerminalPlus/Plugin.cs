@@ -39,7 +39,7 @@ namespace TestPlugin
         private void TerminalIsAwake(object sender, TerminalEventArgs e)
         {
             Logger.LogMessage("Terminal is awake");
-            AddCommand("detailed", "Ship is not Landed!\n\n", "detscan", true);
+            AddCommand("detailedscan", "Ship is not Landed!\n\n", "detscan", true);
         }
 
         private void TerminalIsWaking(object sender, TerminalEventArgs e)
@@ -63,11 +63,21 @@ namespace TestPlugin
             Logger.LogMessage($"Text sent by: {sender}");
             if(e.SubmittedText == "tp") {
                 Logger.LogMessage("TP WAS ENTERED");
-                TerminalNode curr = ScriptableObject.CreateInstance<TerminalNode>();
-                curr.displayText = "teleportation active";
-                curr.clearPreviousText = true;
-                Logger.LogMessage("tp with display text: " + curr.displayText);
-                CreateTerminalNode("Teleporting...", true);
+                ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
+                if(teleporters.Length == 0) {
+                    Logger.LogMessage("NO TP FOUND");
+                } else if(teleporters.Length > 1) {
+                    Logger.LogMessage("Several teleporters?");
+                } else {
+                    Logger.LogMessage("tp found :)!");
+                }
+                for(int i = 0; i < teleporters.Length; i++) {
+                    Logger.LogMessage($"tp param: {teleporters[i].isInverseTeleporter}");
+                    if(!teleporters[i].buttonTrigger.interactable) {
+                        Logger.LogMessage("tp on cooldown");
+                    } else {
+                    }
+                }
             }
         }
 
@@ -76,7 +86,6 @@ namespace TestPlugin
             Logger.LogMessage("Player has just started using the terminal");
             System.Collections.Generic.List<GrabbableObject> sortedItems = new System.Collections.Generic.List<GrabbableObject>();
             GrabbableObject[] unSortedItems = UnityEngine.Object.FindObjectsOfType<GrabbableObject>();
-            Logger.LogMessage("Reached");
             int totalValue = 0;
             for (int n = 0; n < unSortedItems.Length; n++)
             {
@@ -90,13 +99,13 @@ namespace TestPlugin
             string itemStr = string.Join("\n", sortedItems.Select(x => x.itemProperties.itemName + " : " + x.scrapValue.ToString() + " Value"));
             string finStr = "Scrap not in ship: " + sortedItems.Count().ToString() + "\n\n" + itemStr + "\n\nWith a total value of: " + totalValue.ToString()+"\n\n";
 
-            UpdateKeywordCompatibleNoun("detscan", "detailed", CreateTerminalNode($"{finStr}", true));
+            UpdateKeywordCompatibleNoun("detscan", "detailedscan", CreateTerminalNode($"{finStr}", true));
         }
 
         private void BeganUsing(object sender, TerminalEventArgs e)
         {
             //sender seems to equal e.Terminal
-            Logger.LogMessage($"Player is using terminal: {sender}, {e.Terminal}");
+            Logger.LogMessage("Player is using terminal");
         }
 
     }

@@ -630,11 +630,11 @@
   "project": {
     "version": "1.0.2",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\TerminalPlus.csproj",
+      "projectUniqueName": "c:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\TerminalPlus.csproj",
       "projectName": "TerminalPlus",
-      "projectPath": "C:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\TerminalPlus.csproj",
+      "projectPath": "c:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\TerminalPlus.csproj",
       "packagesPath": "C:\\Users\\gavin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\obj\\",
+      "outputPath": "c:\\Users\\gavin\\Documents\\VSCode\\TerminalPlus\\TerminalPlus\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gavin\\AppData\\Roaming\\NuGet\\NuGet.Config"

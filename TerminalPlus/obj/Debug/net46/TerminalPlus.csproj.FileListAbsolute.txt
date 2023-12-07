@@ -1,10 +1,3 @@
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.csproj.AssemblyReference.cache
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.AssemblyInfoInputs.cache
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.AssemblyInfo.cs
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.csproj.CoreCompileInputs.cache
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.sourcelink.json
-C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\MyPluginInfo.cs
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\TerminalPlus.dll
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\TerminalPlus.pdb
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\Assembly-CSharp.dll
@@ -105,6 +98,13 @@ C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\Unity.
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\Unity.Services.Core.dll
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\Newtonsoft.Json.dll
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\bin\Debug\net46\Unity.Profiling.Core.dll
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.csproj.AssemblyReference.cache
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\MyPluginInfo.cs
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.AssemblyInfoInputs.cache
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.AssemblyInfo.cs
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.csproj.CoreCompileInputs.cache
+C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.sourcelink.json
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.csproj.CopyComplete
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.dll
 C:\Users\gavin\Documents\VSCode\TerminalPlus\TerminalPlus\obj\Debug\net46\TerminalPlus.pdb
