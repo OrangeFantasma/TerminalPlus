@@ -27,6 +27,8 @@ namespace TestPlugin
             TerminalBeginUsing += OnBeginUsing;
             TerminalBeganUsing += BeganUsing;
             TerminalExited += OnTerminalExit;
+            //potentially useful future method
+            //TerminalTextChanged += OnTextChange;
 
             // Will display 'World' when 'hello' is typed into the terminal
             AddCommand("hello", "World\n");
@@ -62,12 +64,13 @@ namespace TestPlugin
         {
             Logger.LogMessage($"Text submitted: {e.SubmittedText} Node Returned: {e.ReturnedNode}");
             Logger.LogMessage($"Text sent by: {sender}");
-            ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
             if (e.SubmittedText == "tp")
             {
+                ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
                 for (int i = 0; i < teleporters.Length; i++)
                 {
-                    if (!teleporters[i].isInverseTeleporter && teleporters[i].buttonTrigger.interactable) {
+                    if (!teleporters[i].isInverseTeleporter && teleporters[i].buttonTrigger.interactable)
+                    {
                         teleporters[i].buttonTrigger.onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
                     }
                 }
