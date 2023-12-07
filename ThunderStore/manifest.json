@@ -1,6 +1,6 @@
 {
     "name": "TerminalPlus",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "",
     "description": "Adds a handful of useful console commands",
     "dependencies": [
