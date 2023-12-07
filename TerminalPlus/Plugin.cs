@@ -11,7 +11,7 @@ using static TerminalApi.TerminalApi;
 
 namespace TestPlugin
 {
-    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.2")]
+    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.3")]
     [BepInDependency("atomic.terminalapi")]
     public class Plugin : BaseUnityPlugin
     {
