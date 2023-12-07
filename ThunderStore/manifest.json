@@ -1,7 +1,7 @@
 {
     "name": "TerminalPlus",
-    "version_number": "1.0.0",
-    "website_url": "https://github.com/OrangeFantasma/TerminalPlus",
+    "version_number": "1.0.1",
+    "website_url": "",
     "description": "Adds a handful of useful console commands",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100", 

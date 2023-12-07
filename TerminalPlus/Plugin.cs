@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using System;
 using TerminalApi;
 using static TerminalApi.Events.Events;
@@ -6,7 +6,7 @@ using static TerminalApi.TerminalApi;
 
 namespace TestPlugin
 {
-	[BepInPlugin("atomic.terminalplus", "Terminal Plus", "1.0.0")]
+	[BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.0")]
 	[BepInDependency("atomic.terminalapi")]
 	public class Plugin : BaseUnityPlugin
 	{
