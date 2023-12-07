@@ -40,6 +40,8 @@ namespace TestPlugin
         {
             Logger.LogMessage("Terminal is awake");
             AddCommand("detailedscan", "Ship is not Landed!\n\n", "detscan", true);
+            AddCommand("teleport", "You don't have a teleporter", "tele", true);
+            
         }
 
         private void TerminalIsWaking(object sender, TerminalEventArgs e)
@@ -64,18 +66,13 @@ namespace TestPlugin
             if(e.SubmittedText == "tp") {
                 Logger.LogMessage("TP WAS ENTERED");
                 ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
-                if(teleporters.Length == 0) {
-                    Logger.LogMessage("NO TP FOUND");
-                } else if(teleporters.Length > 1) {
-                    Logger.LogMessage("Several teleporters?");
-                } else {
-                    Logger.LogMessage("tp found :)!");
-                }
                 for(int i = 0; i < teleporters.Length; i++) {
-                    Logger.LogMessage($"tp param: {teleporters[i].isInverseTeleporter}");
-                    if(!teleporters[i].buttonTrigger.interactable) {
-                        Logger.LogMessage("tp on cooldown");
-                    } else {
+                    if(!teleporters[i].isInverseTeleporter) {
+                        if(!teleporters[i].buttonTrigger.interactable) {
+                            Logger.LogMessage("tp on cooldown");
+                        } else {
+                            teleporters[i].buttonTrigger.onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
+                        }
                     }
                 }
             }
@@ -97,7 +94,7 @@ namespace TestPlugin
             }
 
             string itemStr = string.Join("\n", sortedItems.Select(x => x.itemProperties.itemName + " : " + x.scrapValue.ToString() + " Value"));
-            string finStr = "Scrap not in ship: " + sortedItems.Count().ToString() + "\n\n" + itemStr + "\n\nWith a total value of: " + totalValue.ToString()+"\n\n";
+            string finStr = "Items not in ship: " + sortedItems.Count().ToString() + "\n\n" + itemStr + "\n\nWith a total value of: " + totalValue.ToString()+"\n\n";
 
             UpdateKeywordCompatibleNoun("detscan", "detailedscan", CreateTerminalNode($"{finStr}", true));
         }
