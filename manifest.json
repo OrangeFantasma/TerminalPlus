@@ -1,7 +1,9 @@
 {
     "name": "TerminalPlus",
-    "description": "Adds a handful of useful console commands",
     "version_number": "1.0.0",
-    "dependencies": ["NotAtomicBomb-TerminalApi-1.3.0"],
-    "website_url": "https://github.com/OrangeFantasma/TerminalPlus"
+    "website_url": "https://github.com/OrangeFantasma/TerminalPlus",
+    "description": "Adds a handful of useful console commands",
+    "dependencies": [
+        "NotAtomicBomb-TerminalApi-1.3.0"
+    ]
 }
