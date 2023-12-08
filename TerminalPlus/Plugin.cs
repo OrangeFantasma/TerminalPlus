@@ -38,10 +38,15 @@ namespace TestPlugin
         private void TerminalIsAwake(object sender, TerminalEventArgs e)
         {
             Logger.LogMessage("Terminal is awake");
-            AddCommand("detailedscan", "Ship is not Landed!\n\n", "detscan", true);
-            AddCommand("tp", "Attempting Teleport...\n\n", "tele", true);
+            AddCommand("detailedscan", "Ship is not Landed!\n\n", "ds1", true);
+            AddCommand("dscan", "Ship is not Landed!\n\n", "ds2", true);
+            AddCommand("detscan", "Ship is not Landed!\n\n", "ds3", true);
+            AddCommand("ds", "Ship is not Landed!\n\n", "ds4", true);
+            AddCommand("tp", "Attempting Teleport...\n\n", "tele1", true);
+            AddCommand("teleport", "Attempting Teleport...\n\n", "tele2", true);
             AddCommand("inverse", "Attempting Inverse Teleport...\n\n", "intele", true);
-            AddCommand("light", "Toggling lights...\n\n", "lightswitch", true);
+            AddCommand("light", "Toggling lights...\n\n", "lightswitch1", true);
+            AddCommand("lights", "Toggling lights...\n\n", "lightswitch2", true);
         }
 
         private void TerminalIsWaking(object sender, TerminalEventArgs e)
@@ -62,7 +67,7 @@ namespace TestPlugin
         private void TextSubmitted(object sender, TerminalParseSentenceEventArgs e)
         {
             Logger.LogMessage($"Text submitted: {e.SubmittedText} Node Returned: {e.ReturnedNode}");
-            if (e.SubmittedText == "tp")
+            if (e.SubmittedText == "tp" || e.SubmittedText == "teleport")
             {
                 ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
                 for (int i = 0; i < teleporters.Length; i++)
@@ -84,7 +89,7 @@ namespace TestPlugin
                     }
                 }
             }
-            else if (e.SubmittedText == "light")
+            else if (e.SubmittedText == "light" || e.SubmittedText == "lights")
             {
                 InteractTrigger[] buttons = UnityEngine.Object.FindObjectsOfType<InteractTrigger>();
                 for (int i = 0; i < buttons.Length; i++)
@@ -115,7 +120,11 @@ namespace TestPlugin
             string itemStr = string.Join("\n", sortedItems.Select(x => x.itemProperties.itemName + " : " + x.scrapValue.ToString() + " Value"));
             string finStr = "Items not in ship: " + sortedItems.Count().ToString() + "\n\n" + itemStr + "\n\nWith a total value of: " + totalValue.ToString() + "\n\n";
 
-            UpdateKeywordCompatibleNoun("detscan", "detailedscan", CreateTerminalNode($"{finStr}", true));
+            UpdateKeywordCompatibleNoun("ds1", "detailedscan", CreateTerminalNode($"{finStr}", true));
+            UpdateKeywordCompatibleNoun("ds3", "detscan", CreateTerminalNode($"{finStr}", true));
+            UpdateKeywordCompatibleNoun("ds2", "dscan", CreateTerminalNode($"{finStr}", true));
+            UpdateKeywordCompatibleNoun("ds4", "ds", CreateTerminalNode($"{finStr}", true));
+            
         }
 
         private void BeganUsing(object sender, TerminalEventArgs e)

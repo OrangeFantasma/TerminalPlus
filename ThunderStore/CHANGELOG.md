@@ -1,4 +1,6 @@
 # Changelog
+## 1.0.6
+Added **light** and alternate ways of entering some commands
 ## 1.0.5
 Added **inverse** and properly credited **detailedscan**
 ## 1.0.4
