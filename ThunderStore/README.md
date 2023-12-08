@@ -1,6 +1,5 @@
-# TerminalPlus
-Introduces several convenient/useful commands
 ## tp
-the same as pushing the button, will fail if the teleporter is on cooldown or not purchased
+Command to activate the teleporter as though you pressed the button, will fail if the teleporter is on cooldown or not purchased
 ## detailedscan
-shows all the lootable items not yet collected
+Shows all the lootable items not yet collected inside the ship
+(Credit to: https://thunderstore.io/c/lethal-company/p/fivetoofive/DetailedScan/ for this)

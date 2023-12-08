@@ -11,7 +11,7 @@ using static TerminalApi.TerminalApi;
 
 namespace TestPlugin
 {
-    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.4")]
+    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.5")]
     [BepInDependency("atomic.terminalapi")]
     public class Plugin : BaseUnityPlugin
     {
@@ -29,9 +29,6 @@ namespace TestPlugin
             TerminalExited += OnTerminalExit;
             //potentially useful future method
             //TerminalTextChanged += OnTextChange;
-
-            // Will display 'World' when 'hello' is typed into the terminal
-            AddCommand("hello", "World\n");
         }
         private void OnTerminalExit(object sender, TerminalEventArgs e)
         {
@@ -43,6 +40,7 @@ namespace TestPlugin
             Logger.LogMessage("Terminal is awake");
             AddCommand("detailedscan", "Ship is not Landed!\n\n", "detscan", true);
             AddCommand("tp", "Attempting Teleport...\n\n", "tele", true);
+            AddCommand("inverse", "Attempting Inverse Teleport...\n\n", "intele", true);
         }
 
         private void TerminalIsWaking(object sender, TerminalEventArgs e)
@@ -63,13 +61,23 @@ namespace TestPlugin
         private void TextSubmitted(object sender, TerminalParseSentenceEventArgs e)
         {
             Logger.LogMessage($"Text submitted: {e.SubmittedText} Node Returned: {e.ReturnedNode}");
-            Logger.LogMessage($"Text sent by: {sender}");
             if (e.SubmittedText == "tp")
             {
                 ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
                 for (int i = 0; i < teleporters.Length; i++)
                 {
                     if (!teleporters[i].isInverseTeleporter && teleporters[i].buttonTrigger.interactable)
+                    {
+                        teleporters[i].buttonTrigger.onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
+                    }
+                }
+            }
+            else if (e.SubmittedText == "inverse")
+            {
+                ShipTeleporter[] teleporters = UnityEngine.Object.FindObjectsOfType<ShipTeleporter>();
+                for (int i = 0; i < teleporters.Length; i++)
+                {
+                    if (teleporters[i].isInverseTeleporter && teleporters[i].buttonTrigger.interactable)
                     {
                         teleporters[i].buttonTrigger.onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
                     }
