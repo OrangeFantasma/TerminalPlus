@@ -4,7 +4,7 @@
     <TargetFramework>net46</TargetFramework>
     <AssemblyName>TerminalPlus</AssemblyName>
     <Description>Adds a handful of useful console commands</Description>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>

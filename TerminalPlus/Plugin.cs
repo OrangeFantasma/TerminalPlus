@@ -11,7 +11,7 @@ using static TerminalApi.TerminalApi;
 
 namespace TestPlugin
 {
-    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.5")]
+    [BepInPlugin("orangefantasma.terminalplus", "TerminalPlus", "1.0.6")]
     [BepInDependency("atomic.terminalapi")]
     public class Plugin : BaseUnityPlugin
     {
@@ -41,6 +41,7 @@ namespace TestPlugin
             AddCommand("detailedscan", "Ship is not Landed!\n\n", "detscan", true);
             AddCommand("tp", "Attempting Teleport...\n\n", "tele", true);
             AddCommand("inverse", "Attempting Inverse Teleport...\n\n", "intele", true);
+            AddCommand("light", "Toggling lights...\n\n", "lightswitch", true);
         }
 
         private void TerminalIsWaking(object sender, TerminalEventArgs e)
@@ -80,6 +81,17 @@ namespace TestPlugin
                     if (teleporters[i].isInverseTeleporter && teleporters[i].buttonTrigger.interactable)
                     {
                         teleporters[i].buttonTrigger.onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
+                    }
+                }
+            }
+            else if (e.SubmittedText == "light")
+            {
+                InteractTrigger[] buttons = UnityEngine.Object.FindObjectsOfType<InteractTrigger>();
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    if (buttons[i].name == "LightSwitch")
+                    {
+                        buttons[i].onInteract.Invoke(GameNetworkManager.Instance.localPlayerController);
                     }
                 }
             }
